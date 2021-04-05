@@ -78,7 +78,7 @@ def loadBooks(catalog):
     Carga los libros del archivo.  Por cada libro se indica al
     modelo que debe adicionarlo al catalogo.
     """
-    booksfile = cf.data_dir + 'GoodReads/books.csv'
+    booksfile = cf.data_dir + 'books.csv'
     input_file = csv.DictReader(open(booksfile, encoding='utf-8'))
     for book in input_file:
         model.addBook(catalog, book)
@@ -89,7 +89,7 @@ def loadTags(catalog):
     Carga todos los tags del archivo e indica al modelo
     que los adicione al catalogo
     """
-    tagsfile = cf.data_dir + 'GoodReads/tags.csv'
+    tagsfile = cf.data_dir + 'tags.csv'
     input_file = csv.DictReader(open(tagsfile, encoding='utf-8'))
     for tag in input_file:
         model.addTag(catalog, tag)
@@ -99,7 +99,7 @@ def loadBooksTags(catalog):
     """
     Carga la información que asocia tags con libros en el catalogo
     """
-    booktagsfile = cf.data_dir + 'GoodReads/book_tags.csv'
+    booktagsfile = cf.data_dir + 'book_tags.csv'
     input_file = csv.DictReader(open(booktagsfile, encoding='utf-8'))
     for booktag in input_file:
         model.addBookTag(catalog, booktag)
@@ -231,6 +231,7 @@ def getTime():
     devuelve el instante tiempo de procesamiento en milisegundos
     """
     return float(time.perf_counter()*1000)
+
 
 
 def getMemory():
